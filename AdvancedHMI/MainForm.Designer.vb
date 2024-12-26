@@ -26,12 +26,12 @@ Partial Class MainForm
         Me.Label1 = New System.Windows.Forms.Label()
         Me.ForceItemsIntoToolBox1 = New MfgControl.AdvancedHMI.Drivers.ForceItemsIntoToolbox()
         Me.ModbusTCPCom1 = New AdvancedHMIDrivers.ModbusTCPCom(Me.components)
-        Me.Voltage = New AdvancedHMIControls.BasicLabel()
-        Me.Current = New AdvancedHMIControls.BasicLabel()
-        Me.BreakerStatus = New AdvancedHMIControls.BasicLabel()
-        Me.BasicTrendChart2 = New AdvancedHMIControls.BasicTrendChart()
         Me.BasicIndicator1 = New AdvancedHMIControls.BasicIndicator()
+        Me.BasicTrendChart2 = New AdvancedHMIControls.BasicTrendChart()
         Me.BasicTrendChart1 = New AdvancedHMIControls.BasicTrendChart()
+        Me.BreakerStatus = New AdvancedHMIControls.BasicLabel()
+        Me.Current = New AdvancedHMIControls.BasicLabel()
+        Me.Voltage = New AdvancedHMIControls.BasicLabel()
         CType(Me.ModbusTCPCom1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -62,83 +62,57 @@ Partial Class MainForm
         Me.ModbusTCPCom1.TimeOut = 3000
         Me.ModbusTCPCom1.UnitId = CType(1, Byte)
         '
-        'Voltage
+        'BasicIndicator1
         '
-        Me.Voltage.AutoSize = True
-        Me.Voltage.BackColor = System.Drawing.Color.Black
-        Me.Voltage.BooleanDisplay = AdvancedHMIControls.BasicLabel.BooleanDisplayOption.TrueFalse
-        Me.Voltage.ComComponent = Me.ModbusTCPCom1
-        Me.Voltage.DisplayAsTime = False
-        Me.Voltage.ForeColor = System.Drawing.Color.White
-        Me.Voltage.Highlight = False
-        Me.Voltage.HighlightColor = System.Drawing.Color.Red
-        Me.Voltage.HighlightForeColor = System.Drawing.Color.White
-        Me.Voltage.HighlightKeyCharacter = "!"
-        Me.Voltage.InterpretValueAsBCD = False
-        Me.Voltage.KeypadAlphaNumeric = False
-        Me.Voltage.KeypadFont = New System.Drawing.Font("Arial", 10.0!)
-        Me.Voltage.KeypadFontColor = System.Drawing.Color.WhiteSmoke
-        Me.Voltage.KeypadMaxValue = 0R
-        Me.Voltage.KeypadMinValue = 0R
-        Me.Voltage.KeypadScaleFactor = 1.0R
-        Me.Voltage.KeypadShowCurrentValue = False
-        Me.Voltage.KeypadText = Nothing
-        Me.Voltage.KeypadWidth = 300
-        Me.Voltage.Location = New System.Drawing.Point(84, 386)
-        Me.Voltage.Name = "Voltage"
-        Me.Voltage.NumericFormat = Nothing
-        Me.Voltage.PLCAddressKeypad = ""
-        Me.Voltage.PLCAddressValue = "40001"
-        Me.Voltage.PollRate = 0
-        Me.Voltage.Size = New System.Drawing.Size(92, 27)
-        Me.Voltage.TabIndex = 4
-        Me.Voltage.Text = "Voltage"
-        Me.Voltage.Value = "Voltage"
-        Me.Voltage.ValueLeftPadCharacter = Global.Microsoft.VisualBasic.ChrW(32)
-        Me.Voltage.ValueLeftPadLength = 0
-        Me.Voltage.ValuePrefix = Nothing
-        Me.Voltage.ValueScaleFactor = 1.0R
-        Me.Voltage.ValueSuffix = Nothing
-        Me.Voltage.ValueToSubtractFrom = 0!
+        Me.BasicIndicator1.Color1 = System.Drawing.Color.DarkGray
+        Me.BasicIndicator1.Color2 = System.Drawing.Color.Green
+        Me.BasicIndicator1.Color3 = System.Drawing.Color.Red
+        Me.BasicIndicator1.ComComponent = Me.ModbusTCPCom1
+        Me.BasicIndicator1.ForeColor = System.Drawing.Color.WhiteSmoke
+        Me.BasicIndicator1.Location = New System.Drawing.Point(511, 307)
+        Me.BasicIndicator1.Name = "BasicIndicator1"
+        Me.BasicIndicator1.OutlineColor = System.Drawing.Color.Transparent
+        Me.BasicIndicator1.OutlineWidth = 1
+        Me.BasicIndicator1.OutputType = MfgControl.AdvancedHMI.Controls.OutputType.MomentarySet
+        Me.BasicIndicator1.PLCAddressSelectColor2 = "00001"
+        Me.BasicIndicator1.SelectColor2 = False
+        Me.BasicIndicator1.SelectColor3 = False
+        Me.BasicIndicator1.Shape = MfgControl.AdvancedHMI.Controls.Indicator.ShapeTypes.Round
+        Me.BasicIndicator1.Size = New System.Drawing.Size(201, 55)
+        Me.BasicIndicator1.TabIndex = 9
+        Me.BasicIndicator1.Text = "BasicIndicator1"
         '
-        'Current
+        'BasicTrendChart2
         '
-        Me.Current.AutoSize = True
-        Me.Current.BackColor = System.Drawing.Color.Black
-        Me.Current.BooleanDisplay = AdvancedHMIControls.BasicLabel.BooleanDisplayOption.TrueFalse
-        Me.Current.ComComponent = Me.ModbusTCPCom1
-        Me.Current.DisplayAsTime = False
-        Me.Current.ForeColor = System.Drawing.Color.White
-        Me.Current.Highlight = False
-        Me.Current.HighlightColor = System.Drawing.Color.Red
-        Me.Current.HighlightForeColor = System.Drawing.Color.White
-        Me.Current.HighlightKeyCharacter = "!"
-        Me.Current.InterpretValueAsBCD = False
-        Me.Current.KeypadAlphaNumeric = False
-        Me.Current.KeypadFont = New System.Drawing.Font("Arial", 10.0!)
-        Me.Current.KeypadFontColor = System.Drawing.Color.WhiteSmoke
-        Me.Current.KeypadMaxValue = 0R
-        Me.Current.KeypadMinValue = 0R
-        Me.Current.KeypadScaleFactor = 1.0R
-        Me.Current.KeypadShowCurrentValue = False
-        Me.Current.KeypadText = Nothing
-        Me.Current.KeypadWidth = 300
-        Me.Current.Location = New System.Drawing.Point(317, 386)
-        Me.Current.Name = "Current"
-        Me.Current.NumericFormat = Nothing
-        Me.Current.PLCAddressKeypad = ""
-        Me.Current.PLCAddressValue = "40002"
-        Me.Current.PollRate = 0
-        Me.Current.Size = New System.Drawing.Size(93, 27)
-        Me.Current.TabIndex = 5
-        Me.Current.Text = "Current"
-        Me.Current.Value = "Current"
-        Me.Current.ValueLeftPadCharacter = Global.Microsoft.VisualBasic.ChrW(32)
-        Me.Current.ValueLeftPadLength = 0
-        Me.Current.ValuePrefix = Nothing
-        Me.Current.ValueScaleFactor = 1.0R
-        Me.Current.ValueSuffix = Nothing
-        Me.Current.ValueToSubtractFrom = 0!
+        Me.BasicTrendChart2.BackColor = System.Drawing.Color.Black
+        Me.BasicTrendChart2.ComComponent = Me.ModbusTCPCom1
+        Me.BasicTrendChart2.Location = New System.Drawing.Point(322, 220)
+        Me.BasicTrendChart2.MaxPoints = 100
+        Me.BasicTrendChart2.Name = "BasicTrendChart2"
+        Me.BasicTrendChart2.PLCAddressValue = "40002"
+        Me.BasicTrendChart2.PLCAddressVisible = ""
+        Me.BasicTrendChart2.Size = New System.Drawing.Size(149, 141)
+        Me.BasicTrendChart2.TabIndex = 8
+        Me.BasicTrendChart2.Text = "BasicTrendChart2"
+        Me.BasicTrendChart2.Value = ""
+        Me.BasicTrendChart2.YMaximum = 32767
+        Me.BasicTrendChart2.YMinimum = 0
+        '
+        'BasicTrendChart1
+        '
+        Me.BasicTrendChart1.BackColor = System.Drawing.Color.Black
+        Me.BasicTrendChart1.ComComponent = Me.ModbusTCPCom1
+        Me.BasicTrendChart1.Location = New System.Drawing.Point(89, 220)
+        Me.BasicTrendChart1.MaxPoints = 100
+        Me.BasicTrendChart1.Name = "BasicTrendChart1"
+        Me.BasicTrendChart1.PLCAddressValue = "40001"
+        Me.BasicTrendChart1.PLCAddressVisible = ""
+        Me.BasicTrendChart1.Size = New System.Drawing.Size(155, 142)
+        Me.BasicTrendChart1.TabIndex = 7
+        Me.BasicTrendChart1.Text = "BasicTrendChart1"
+        Me.BasicTrendChart1.Value = ""
+        Me.BasicTrendChart1.YMaximum = 32767
+        Me.BasicTrendChart1.YMinimum = 0
         '
         'BreakerStatus
         '
@@ -179,57 +153,83 @@ Partial Class MainForm
         Me.BreakerStatus.ValueSuffix = Nothing
         Me.BreakerStatus.ValueToSubtractFrom = 0!
         '
-        'BasicTrendChart2
+        'Current
         '
-        Me.BasicTrendChart2.BackColor = System.Drawing.Color.Black
-        Me.BasicTrendChart2.ComComponent = Me.ModbusTCPCom1
-        Me.BasicTrendChart2.Location = New System.Drawing.Point(322, 338)
-        Me.BasicTrendChart2.MaxPoints = 100
-        Me.BasicTrendChart2.Name = "BasicTrendChart2"
-        Me.BasicTrendChart2.PLCAddressValue = "40002"
-        Me.BasicTrendChart2.PLCAddressVisible = ""
-        Me.BasicTrendChart2.Size = New System.Drawing.Size(75, 23)
-        Me.BasicTrendChart2.TabIndex = 8
-        Me.BasicTrendChart2.Text = "BasicTrendChart2"
-        Me.BasicTrendChart2.Value = ""
-        Me.BasicTrendChart2.YMaximum = 32767
-        Me.BasicTrendChart2.YMinimum = 0
+        Me.Current.AutoSize = True
+        Me.Current.BackColor = System.Drawing.Color.Black
+        Me.Current.BooleanDisplay = AdvancedHMIControls.BasicLabel.BooleanDisplayOption.TrueFalse
+        Me.Current.ComComponent = Me.ModbusTCPCom1
+        Me.Current.DisplayAsTime = False
+        Me.Current.ForeColor = System.Drawing.Color.White
+        Me.Current.Highlight = False
+        Me.Current.HighlightColor = System.Drawing.Color.Red
+        Me.Current.HighlightForeColor = System.Drawing.Color.White
+        Me.Current.HighlightKeyCharacter = "!"
+        Me.Current.InterpretValueAsBCD = False
+        Me.Current.KeypadAlphaNumeric = False
+        Me.Current.KeypadFont = New System.Drawing.Font("Arial", 10.0!)
+        Me.Current.KeypadFontColor = System.Drawing.Color.WhiteSmoke
+        Me.Current.KeypadMaxValue = 0R
+        Me.Current.KeypadMinValue = 0R
+        Me.Current.KeypadScaleFactor = 1.0R
+        Me.Current.KeypadShowCurrentValue = False
+        Me.Current.KeypadText = Nothing
+        Me.Current.KeypadWidth = 300
+        Me.Current.Location = New System.Drawing.Point(317, 386)
+        Me.Current.Name = "Current"
+        Me.Current.NumericFormat = Nothing
+        Me.Current.PLCAddressKeypad = ""
+        Me.Current.PLCAddressValue = "40002"
+        Me.Current.PollRate = 0
+        Me.Current.Size = New System.Drawing.Size(93, 27)
+        Me.Current.TabIndex = 5
+        Me.Current.Text = "Current"
+        Me.Current.Value = "Current"
+        Me.Current.ValueLeftPadCharacter = Global.Microsoft.VisualBasic.ChrW(32)
+        Me.Current.ValueLeftPadLength = 0
+        Me.Current.ValuePrefix = Nothing
+        Me.Current.ValueScaleFactor = 1.0R
+        Me.Current.ValueSuffix = Nothing
+        Me.Current.ValueToSubtractFrom = 0!
         '
-        'BasicIndicator1
+        'Voltage
         '
-        Me.BasicIndicator1.Color1 = System.Drawing.Color.DarkGray
-        Me.BasicIndicator1.Color2 = System.Drawing.Color.Green
-        Me.BasicIndicator1.Color3 = System.Drawing.Color.Red
-        Me.BasicIndicator1.ComComponent = Me.ModbusTCPCom1
-        Me.BasicIndicator1.ForeColor = System.Drawing.Color.WhiteSmoke
-        Me.BasicIndicator1.Location = New System.Drawing.Point(536, 339)
-        Me.BasicIndicator1.Name = "BasicIndicator1"
-        Me.BasicIndicator1.OutlineColor = System.Drawing.Color.Transparent
-        Me.BasicIndicator1.OutlineWidth = 1
-        Me.BasicIndicator1.OutputType = MfgControl.AdvancedHMI.Controls.OutputType.MomentarySet
-        Me.BasicIndicator1.PLCAddressSelectColor2 = "00001"
-        Me.BasicIndicator1.SelectColor2 = False
-        Me.BasicIndicator1.SelectColor3 = False
-        Me.BasicIndicator1.Shape = MfgControl.AdvancedHMI.Controls.Indicator.ShapeTypes.Round
-        Me.BasicIndicator1.Size = New System.Drawing.Size(75, 23)
-        Me.BasicIndicator1.TabIndex = 9
-        Me.BasicIndicator1.Text = "BasicIndicator1"
-        '
-        'BasicTrendChart1
-        '
-        Me.BasicTrendChart1.BackColor = System.Drawing.Color.Black
-        Me.BasicTrendChart1.ComComponent = Me.ModbusTCPCom1
-        Me.BasicTrendChart1.Location = New System.Drawing.Point(89, 339)
-        Me.BasicTrendChart1.MaxPoints = 100
-        Me.BasicTrendChart1.Name = "BasicTrendChart1"
-        Me.BasicTrendChart1.PLCAddressValue = "40001"
-        Me.BasicTrendChart1.PLCAddressVisible = ""
-        Me.BasicTrendChart1.Size = New System.Drawing.Size(75, 23)
-        Me.BasicTrendChart1.TabIndex = 7
-        Me.BasicTrendChart1.Text = "BasicTrendChart1"
-        Me.BasicTrendChart1.Value = ""
-        Me.BasicTrendChart1.YMaximum = 32767
-        Me.BasicTrendChart1.YMinimum = 0
+        Me.Voltage.AutoSize = True
+        Me.Voltage.BackColor = System.Drawing.Color.Black
+        Me.Voltage.BooleanDisplay = AdvancedHMIControls.BasicLabel.BooleanDisplayOption.TrueFalse
+        Me.Voltage.ComComponent = Me.ModbusTCPCom1
+        Me.Voltage.DisplayAsTime = False
+        Me.Voltage.ForeColor = System.Drawing.Color.White
+        Me.Voltage.Highlight = False
+        Me.Voltage.HighlightColor = System.Drawing.Color.Red
+        Me.Voltage.HighlightForeColor = System.Drawing.Color.White
+        Me.Voltage.HighlightKeyCharacter = "!"
+        Me.Voltage.InterpretValueAsBCD = False
+        Me.Voltage.KeypadAlphaNumeric = False
+        Me.Voltage.KeypadFont = New System.Drawing.Font("Arial", 10.0!)
+        Me.Voltage.KeypadFontColor = System.Drawing.Color.WhiteSmoke
+        Me.Voltage.KeypadMaxValue = 0R
+        Me.Voltage.KeypadMinValue = 0R
+        Me.Voltage.KeypadScaleFactor = 1.0R
+        Me.Voltage.KeypadShowCurrentValue = False
+        Me.Voltage.KeypadText = Nothing
+        Me.Voltage.KeypadWidth = 300
+        Me.Voltage.Location = New System.Drawing.Point(84, 386)
+        Me.Voltage.Name = "Voltage"
+        Me.Voltage.NumericFormat = Nothing
+        Me.Voltage.PLCAddressKeypad = ""
+        Me.Voltage.PLCAddressValue = "40001"
+        Me.Voltage.PollRate = 0
+        Me.Voltage.Size = New System.Drawing.Size(92, 27)
+        Me.Voltage.TabIndex = 4
+        Me.Voltage.Text = "Voltage"
+        Me.Voltage.Value = "Voltage"
+        Me.Voltage.ValueLeftPadCharacter = Global.Microsoft.VisualBasic.ChrW(32)
+        Me.Voltage.ValueLeftPadLength = 0
+        Me.Voltage.ValuePrefix = Nothing
+        Me.Voltage.ValueScaleFactor = 1.0R
+        Me.Voltage.ValueSuffix = Nothing
+        Me.Voltage.ValueToSubtractFrom = 0!
         '
         'MainForm
         '
