@@ -23,16 +23,30 @@ Partial Class MainForm
     ' <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
+        Dim ChartArea1 As System.Windows.Forms.DataVisualization.Charting.ChartArea = New System.Windows.Forms.DataVisualization.Charting.ChartArea()
+        Dim Legend1 As System.Windows.Forms.DataVisualization.Charting.Legend = New System.Windows.Forms.DataVisualization.Charting.Legend()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(MainForm))
+        Dim Series1 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
+        Dim Series2 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
+        Dim Title1 As System.Windows.Forms.DataVisualization.Charting.Title = New System.Windows.Forms.DataVisualization.Charting.Title()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.ForceItemsIntoToolBox1 = New MfgControl.AdvancedHMI.Drivers.ForceItemsIntoToolbox()
         Me.ModbusTCPCom1 = New AdvancedHMIDrivers.ModbusTCPCom(Me.components)
         Me.BasicIndicator1 = New AdvancedHMIControls.BasicIndicator()
-        Me.BasicTrendChart2 = New AdvancedHMIControls.BasicTrendChart()
-        Me.BasicTrendChart1 = New AdvancedHMIControls.BasicTrendChart()
         Me.BreakerStatus = New AdvancedHMIControls.BasicLabel()
         Me.Current = New AdvancedHMIControls.BasicLabel()
         Me.Voltage = New AdvancedHMIControls.BasicLabel()
+        Me.DigitalPanelMeter1 = New AdvancedHMIControls.DigitalPanelMeter()
+        Me.DigitalPanelMeter2 = New AdvancedHMIControls.DigitalPanelMeter()
+        Me.ChartBySampling1 = New AdvancedHMIControls.ChartBySampling()
+        Me.DataSubscriber1 = New AdvancedHMIControls.DataSubscriber(Me.components)
+        Me.DataSubscriber2 = New AdvancedHMIControls.DataSubscriber(Me.components)
+        Me.DataSubscriber3 = New AdvancedHMIControls.DataSubscriber(Me.components)
         CType(Me.ModbusTCPCom1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.ChartBySampling1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.DataSubscriber1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.DataSubscriber2, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.DataSubscriber3, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'Label1
@@ -69,7 +83,7 @@ Partial Class MainForm
         Me.BasicIndicator1.Color3 = System.Drawing.Color.Red
         Me.BasicIndicator1.ComComponent = Me.ModbusTCPCom1
         Me.BasicIndicator1.ForeColor = System.Drawing.Color.WhiteSmoke
-        Me.BasicIndicator1.Location = New System.Drawing.Point(511, 307)
+        Me.BasicIndicator1.Location = New System.Drawing.Point(175, 459)
         Me.BasicIndicator1.Name = "BasicIndicator1"
         Me.BasicIndicator1.OutlineColor = System.Drawing.Color.Transparent
         Me.BasicIndicator1.OutlineWidth = 1
@@ -81,38 +95,6 @@ Partial Class MainForm
         Me.BasicIndicator1.Size = New System.Drawing.Size(201, 55)
         Me.BasicIndicator1.TabIndex = 9
         Me.BasicIndicator1.Text = "BasicIndicator1"
-        '
-        'BasicTrendChart2
-        '
-        Me.BasicTrendChart2.BackColor = System.Drawing.Color.Black
-        Me.BasicTrendChart2.ComComponent = Me.ModbusTCPCom1
-        Me.BasicTrendChart2.Location = New System.Drawing.Point(322, 220)
-        Me.BasicTrendChart2.MaxPoints = 100
-        Me.BasicTrendChart2.Name = "BasicTrendChart2"
-        Me.BasicTrendChart2.PLCAddressValue = "40002"
-        Me.BasicTrendChart2.PLCAddressVisible = ""
-        Me.BasicTrendChart2.Size = New System.Drawing.Size(149, 141)
-        Me.BasicTrendChart2.TabIndex = 8
-        Me.BasicTrendChart2.Text = "BasicTrendChart2"
-        Me.BasicTrendChart2.Value = ""
-        Me.BasicTrendChart2.YMaximum = 32767
-        Me.BasicTrendChart2.YMinimum = 0
-        '
-        'BasicTrendChart1
-        '
-        Me.BasicTrendChart1.BackColor = System.Drawing.Color.Black
-        Me.BasicTrendChart1.ComComponent = Me.ModbusTCPCom1
-        Me.BasicTrendChart1.Location = New System.Drawing.Point(89, 220)
-        Me.BasicTrendChart1.MaxPoints = 100
-        Me.BasicTrendChart1.Name = "BasicTrendChart1"
-        Me.BasicTrendChart1.PLCAddressValue = "40001"
-        Me.BasicTrendChart1.PLCAddressVisible = ""
-        Me.BasicTrendChart1.Size = New System.Drawing.Size(155, 142)
-        Me.BasicTrendChart1.TabIndex = 7
-        Me.BasicTrendChart1.Text = "BasicTrendChart1"
-        Me.BasicTrendChart1.Value = ""
-        Me.BasicTrendChart1.YMaximum = 32767
-        Me.BasicTrendChart1.YMinimum = 0
         '
         'BreakerStatus
         '
@@ -136,13 +118,13 @@ Partial Class MainForm
         Me.BreakerStatus.KeypadShowCurrentValue = False
         Me.BreakerStatus.KeypadText = Nothing
         Me.BreakerStatus.KeypadWidth = 300
-        Me.BreakerStatus.Location = New System.Drawing.Point(531, 386)
+        Me.BreakerStatus.Location = New System.Drawing.Point(224, 517)
         Me.BreakerStatus.Name = "BreakerStatus"
         Me.BreakerStatus.NumericFormat = Nothing
         Me.BreakerStatus.PLCAddressKeypad = ""
         Me.BreakerStatus.PLCAddressValue = "00001"
         Me.BreakerStatus.PollRate = 0
-        Me.BreakerStatus.Size = New System.Drawing.Size(164, 27)
+        Me.BreakerStatus.Size = New System.Drawing.Size(108, 18)
         Me.BreakerStatus.TabIndex = 6
         Me.BreakerStatus.Text = "BreakerStatus"
         Me.BreakerStatus.Value = "BreakerStatus"
@@ -181,7 +163,7 @@ Partial Class MainForm
         Me.Current.PLCAddressKeypad = ""
         Me.Current.PLCAddressValue = "40002"
         Me.Current.PollRate = 0
-        Me.Current.Size = New System.Drawing.Size(93, 27)
+        Me.Current.Size = New System.Drawing.Size(59, 18)
         Me.Current.TabIndex = 5
         Me.Current.Text = "Current"
         Me.Current.Value = "Current"
@@ -220,7 +202,7 @@ Partial Class MainForm
         Me.Voltage.PLCAddressKeypad = ""
         Me.Voltage.PLCAddressValue = "40001"
         Me.Voltage.PollRate = 0
-        Me.Voltage.Size = New System.Drawing.Size(92, 27)
+        Me.Voltage.Size = New System.Drawing.Size(61, 18)
         Me.Voltage.TabIndex = 4
         Me.Voltage.Text = "Voltage"
         Me.Voltage.Value = "Voltage"
@@ -231,14 +213,116 @@ Partial Class MainForm
         Me.Voltage.ValueSuffix = Nothing
         Me.Voltage.ValueToSubtractFrom = 0!
         '
+        'DigitalPanelMeter1
+        '
+        Me.DigitalPanelMeter1.BackColor = System.Drawing.Color.Transparent
+        Me.DigitalPanelMeter1.ComComponent = Me.ModbusTCPCom1
+        Me.DigitalPanelMeter1.DecimalPosition = 0
+        Me.DigitalPanelMeter1.ForeColor = System.Drawing.Color.LightGray
+        Me.DigitalPanelMeter1.KeypadFontColor = System.Drawing.Color.WhiteSmoke
+        Me.DigitalPanelMeter1.KeypadMaxValue = 0R
+        Me.DigitalPanelMeter1.KeypadMinValue = 0R
+        Me.DigitalPanelMeter1.KeypadScaleFactor = 1.0R
+        Me.DigitalPanelMeter1.KeypadText = Nothing
+        Me.DigitalPanelMeter1.KeypadWidth = 300
+        Me.DigitalPanelMeter1.Location = New System.Drawing.Point(87, 350)
+        Me.DigitalPanelMeter1.Name = "DigitalPanelMeter1"
+        Me.DigitalPanelMeter1.NumberOfDigits = 5
+        Me.DigitalPanelMeter1.PLCAddressKeypad = ""
+        Me.DigitalPanelMeter1.PLCAddressValue = "40001"
+        Me.DigitalPanelMeter1.Resolution = New Decimal(New Integer() {1, 0, 0, 0})
+        Me.DigitalPanelMeter1.Size = New System.Drawing.Size(76, 33)
+        Me.DigitalPanelMeter1.TabIndex = 10
+        Me.DigitalPanelMeter1.Text = "DigitalPanelMeter1"
+        Me.DigitalPanelMeter1.Value = 0R
+        Me.DigitalPanelMeter1.ValueScaleFactor = New Decimal(New Integer() {1, 0, 0, 0})
+        Me.DigitalPanelMeter1.ValueScaleOffset = New Decimal(New Integer() {0, 0, 0, 0})
+        '
+        'DigitalPanelMeter2
+        '
+        Me.DigitalPanelMeter2.BackColor = System.Drawing.Color.Transparent
+        Me.DigitalPanelMeter2.ComComponent = Me.ModbusTCPCom1
+        Me.DigitalPanelMeter2.DecimalPosition = 0
+        Me.DigitalPanelMeter2.ForeColor = System.Drawing.Color.LightGray
+        Me.DigitalPanelMeter2.KeypadFontColor = System.Drawing.Color.WhiteSmoke
+        Me.DigitalPanelMeter2.KeypadMaxValue = 0R
+        Me.DigitalPanelMeter2.KeypadMinValue = 0R
+        Me.DigitalPanelMeter2.KeypadScaleFactor = 1.0R
+        Me.DigitalPanelMeter2.KeypadText = Nothing
+        Me.DigitalPanelMeter2.KeypadWidth = 300
+        Me.DigitalPanelMeter2.Location = New System.Drawing.Point(320, 350)
+        Me.DigitalPanelMeter2.Name = "DigitalPanelMeter2"
+        Me.DigitalPanelMeter2.NumberOfDigits = 5
+        Me.DigitalPanelMeter2.PLCAddressKeypad = ""
+        Me.DigitalPanelMeter2.PLCAddressValue = "40002"
+        Me.DigitalPanelMeter2.Resolution = New Decimal(New Integer() {1, 0, 0, 0})
+        Me.DigitalPanelMeter2.Size = New System.Drawing.Size(76, 33)
+        Me.DigitalPanelMeter2.TabIndex = 11
+        Me.DigitalPanelMeter2.Text = "DigitalPanelMeter2"
+        Me.DigitalPanelMeter2.Value = 0R
+        Me.DigitalPanelMeter2.ValueScaleFactor = New Decimal(New Integer() {1, 0, 0, 0})
+        Me.DigitalPanelMeter2.ValueScaleOffset = New Decimal(New Integer() {0, 0, 0, 0})
+        '
+        'ChartBySampling1
+        '
+        ChartArea1.AxisX.Title = "Time (Seconds)"
+        ChartArea1.AxisY.Title = "Values"
+        ChartArea1.Name = "ChartArea1"
+        Me.ChartBySampling1.ChartAreas.Add(ChartArea1)
+        Me.ChartBySampling1.ComComponent = Me.ModbusTCPCom1
+        Legend1.Name = "Legend1"
+        Me.ChartBySampling1.Legends.Add(Legend1)
+        Me.ChartBySampling1.Location = New System.Drawing.Point(485, 235)
+        Me.ChartBySampling1.MaximumActivePoints = 100
+        Me.ChartBySampling1.Name = "ChartBySampling1"
+        Me.ChartBySampling1.PLCAddressItems.Add(CType(resources.GetObject("ChartBySampling1.PLCAddressItems"), MfgControl.AdvancedHMI.Drivers.PLCAddressItem))
+        Me.ChartBySampling1.PLCAddressItems.Add(CType(resources.GetObject("ChartBySampling1.PLCAddressItems1"), MfgControl.AdvancedHMI.Drivers.PLCAddressItem))
+        Me.ChartBySampling1.PLCAddressYAxisMax = Nothing
+        Me.ChartBySampling1.PLCAddressYAxisMin = Nothing
+        Series1.ChartArea = "ChartArea1"
+        Series1.Legend = "Legend1"
+        Series1.Name = "Voltage"
+        Series2.ChartArea = "ChartArea1"
+        Series2.Legend = "Legend1"
+        Series2.Name = "Current"
+        Me.ChartBySampling1.Series.Add(Series1)
+        Me.ChartBySampling1.Series.Add(Series2)
+        Me.ChartBySampling1.Size = New System.Drawing.Size(300, 300)
+        Me.ChartBySampling1.TabIndex = 12
+        Me.ChartBySampling1.Text = "ChartBySampling1"
+        Title1.Name = "Title1"
+        Title1.Text = "Voltage and Current Trends"
+        Me.ChartBySampling1.Titles.Add(Title1)
+        Me.ChartBySampling1.YAxisMax = Double.NaN
+        Me.ChartBySampling1.YAxisMin = Double.NaN
+        '
+        'DataSubscriber1
+        '
+        Me.DataSubscriber1.ComComponent = Me.ModbusTCPCom1
+        Me.DataSubscriber1.PLCAddressValue = CType(resources.GetObject("DataSubscriber1.PLCAddressValue"), MfgControl.AdvancedHMI.Drivers.PLCAddressItem)
+        Me.DataSubscriber1.Value = Nothing
+        '
+        'DataSubscriber2
+        '
+        Me.DataSubscriber2.ComComponent = Me.ModbusTCPCom1
+        Me.DataSubscriber2.PLCAddressValue = CType(resources.GetObject("DataSubscriber2.PLCAddressValue"), MfgControl.AdvancedHMI.Drivers.PLCAddressItem)
+        Me.DataSubscriber2.Value = Nothing
+        '
+        'DataSubscriber3
+        '
+        Me.DataSubscriber3.ComComponent = Me.ModbusTCPCom1
+        Me.DataSubscriber3.PLCAddressValue = CType(resources.GetObject("DataSubscriber3.PLCAddressValue"), MfgControl.AdvancedHMI.Drivers.PLCAddressItem)
+        Me.DataSubscriber3.Value = Nothing
+        '
         'MainForm
         '
         Me.AutoScroll = True
         Me.BackColor = System.Drawing.Color.Black
         Me.ClientSize = New System.Drawing.Size(1271, 561)
+        Me.Controls.Add(Me.ChartBySampling1)
+        Me.Controls.Add(Me.DigitalPanelMeter2)
+        Me.Controls.Add(Me.DigitalPanelMeter1)
         Me.Controls.Add(Me.BasicIndicator1)
-        Me.Controls.Add(Me.BasicTrendChart2)
-        Me.Controls.Add(Me.BasicTrendChart1)
         Me.Controls.Add(Me.BreakerStatus)
         Me.Controls.Add(Me.Current)
         Me.Controls.Add(Me.Voltage)
@@ -250,6 +334,10 @@ Partial Class MainForm
         Me.StartPosition = System.Windows.Forms.FormStartPosition.Manual
         Me.Text = "AdvancedHMI v3.99x"
         CType(Me.ModbusTCPCom1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.ChartBySampling1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.DataSubscriber1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.DataSubscriber2, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.DataSubscriber3, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -261,7 +349,11 @@ Partial Class MainForm
     Friend WithEvents Voltage As AdvancedHMIControls.BasicLabel
     Friend WithEvents Current As AdvancedHMIControls.BasicLabel
     Friend WithEvents BreakerStatus As AdvancedHMIControls.BasicLabel
-    Friend WithEvents BasicTrendChart2 As AdvancedHMIControls.BasicTrendChart
     Friend WithEvents BasicIndicator1 As AdvancedHMIControls.BasicIndicator
-    Friend WithEvents BasicTrendChart1 As AdvancedHMIControls.BasicTrendChart
+    Friend WithEvents DigitalPanelMeter1 As AdvancedHMIControls.DigitalPanelMeter
+    Friend WithEvents DigitalPanelMeter2 As AdvancedHMIControls.DigitalPanelMeter
+    Friend WithEvents ChartBySampling1 As AdvancedHMIControls.ChartBySampling
+    Friend WithEvents DataSubscriber1 As AdvancedHMIControls.DataSubscriber
+    Friend WithEvents DataSubscriber2 As AdvancedHMIControls.DataSubscriber
+    Friend WithEvents DataSubscriber3 As AdvancedHMIControls.DataSubscriber
 End Class
