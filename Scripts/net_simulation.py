@@ -22,7 +22,7 @@ try:
         # Simulate changing values for registers
         voltage = random.choice(v_values)  # Simulate voltage
         current = random.choice(i_values)   # Simulate current
-        if voltage < 100 or current < 10:
+        if voltage < 100:
             breaker_status = False
         else:
             breaker_status = True
